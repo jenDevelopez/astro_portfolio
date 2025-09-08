@@ -1,0 +1,87 @@
+---
+import ".././styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<html lang="es" class="transition-colors duration-300">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Portfolio | Jennifer López</title>
+	</head>
+	<body
+		class="bg-slate-50 dark:bg-[#1a1a1a]/90 dark:text-white transition-colors duration-300"
+	>
+		<Navbar />
+
+		<slot />
+
+		<Footer />
+
+		<script>
+			const root = document.documentElement;
+
+			// Botones e iconos
+			const themeToggle = document.getElementById("theme-toggle");
+			const themeIcon = document.getElementById("theme-icon");
+			const themeToggleMobile =
+				document.getElementById("theme-toggle-mobile") ||
+				document.getElementById("theme-toggle");
+			const themeIconMobile =
+				document.getElementById("theme-icon-mobile");
+
+			// Detectar tema guardado o preferencia del sistema
+			const savedTheme = localStorage.getItem("theme");
+			const systemPrefersDark = window.matchMedia(
+				"(prefers-color-scheme: dark)",
+			).matches;
+
+			if (savedTheme === "dark" || (!savedTheme && systemPrefersDark)) {
+				root.classList.add("dark");
+				if (themeIcon) themeIcon.textContent = "🌞";
+				if (themeIconMobile) themeIconMobile.textContent = "🌞";
+			} else {
+				root.classList.remove("dark");
+				if (themeIcon) themeIcon.textContent = "🌙";
+				if (themeIconMobile) themeIconMobile.textContent = "🌙";
+			}
+
+			// Función para alternar tema
+			const toggleTheme = () => {
+				if (root.classList.contains("dark")) {
+					root.classList.remove("dark");
+					localStorage.setItem("theme", "light");
+					if (themeIcon) themeIcon.textContent = "🌙";
+					if (themeIconMobile) themeIconMobile.textContent = "🌙";
+				} else {
+					root.classList.add("dark");
+					localStorage.setItem("theme", "dark");
+					if (themeIcon) themeIcon.textContent = "🌞";
+					if (themeIconMobile) themeIconMobile.textContent = "🌞";
+				}
+			};
+
+			// Escuchar ambos botones
+			themeToggle?.addEventListener("click", toggleTheme);
+			themeToggleMobile?.addEventListener("click", toggleTheme);
+
+			// Menú hamburguesa
+			const menuBtn = document.getElementById("menu-btn");
+			const mobileMenu = document.getElementById("mobile-menu");
+
+			menuBtn?.addEventListener("click", () => {
+				mobileMenu?.classList.toggle("hidden");
+				mobileMenu?.classList.toggle("flex");
+			});
+
+			// Cerrar menú móvil al hacer clic en un enlace
+			mobileMenu?.querySelectorAll("a").forEach((link) => {
+				link.addEventListener("click", () => {
+					mobileMenu.classList.add("hidden");
+					mobileMenu.classList.remove("flex");
+				});
+			});
+		</script>
+	</body>
+</html>

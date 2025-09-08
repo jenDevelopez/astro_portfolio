@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Project from "../components/Project.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Resume from "../components/Resume.astro";
+import Contact from "../components/Contact.astro";
+import {skills,projects} from "../data"
+
+---
+
+<Layout>
+  <Hero />
+  <About skills={skills} />
+  <Resume />
+  <section
+    id="projects"
+    class="px-6 md:px-12 py-20 bg-yellow-50 dark:bg-[#181818]"
+  >
+    <h2 class="text-3xl font-bold mb-8 text-center">Projects</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        projects.map(({ title, description, link, githubLink, image,skills }) => (
+          <Project
+            title={title}
+            description={description}
+            link={link}
+            githubLink={githubLink}
+            image={image}
+            skills={skills}
+          />
+        ))
+      }
+    </div>
+  </section>
+  <Contact />
+</Layout>
+
