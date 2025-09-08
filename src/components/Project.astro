@@ -9,7 +9,7 @@ interface Props {
 }
 
 const { title, description, link, githubLink, image, skills = [] } = Astro.props as Props;
-const imageSrc = image || '../public/placeholder.png';
+const imageSrc = image || '/placeholder.png';
 const imageAlt = `Screenshot of ${title}`;
 ---
 

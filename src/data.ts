@@ -21,13 +21,13 @@ export const projects = [
       "Desarrollo de app de naves de Star Wars, con su informacion, pilotos y películas en la que aparecen",
     link: "https://star-wars-aplication.netlify.app",
     githubLink: "https://github.com/jenDevelopez/star-wars/",
-    image: "../public/projects-screenshots/star-wars.webp",
+    image: "/projects-screenshots/star-wars.webp",
     skills:['React','TailwindCSS','Firebase','Zustand']
   },
     {
       title: "Javascript quizz",
       description: "Desarrollo de aplicación de preguntas de javascript para princpiantes",
-      image: "../public/projects-screenshots/js-quizz.webp",
+      image: "/projects-screenshots/js-quizz.webp",
       link: 'quizz-javascript-app.netlify.app',
       githubLink: "https://github.com/jenDevelopez/javascript-quizz.git",
       skills:['React','Zustand','TailwindCSS']
@@ -37,7 +37,7 @@ export const projects = [
       description:
         "Página de Poseidrone, empresa dedicada a la grabacion con drones",
       link: "https://poseidrone.com/",
-            image: "../public/projects-screenshots/poseidrone.webp",
+            image: "/projects-screenshots/poseidrone.webp",
       skills:['HTML5','CSS3','JavaScript','JQuery','PHP','Wordpress']
     },
 ];
