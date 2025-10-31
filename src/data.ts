@@ -40,4 +40,12 @@ export const projects = [
             image: "/projects-screenshots/poseidrone.webp",
       skills:['HTML5','CSS3','JavaScript','JQuery','PHP','Wordpress']
     },
+    {
+      title: "Notes App",
+      description:
+        "Página de Poseidrone, empresa dedicada a la grabacion con drones",
+      link: "https://jennotesapp.netlify.app/",
+            image: "/projects-screenshots/notes-app.webp",
+      skills:['Vue','Pinia','CSS3','JavaScript']
+    },
 ];
